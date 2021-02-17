@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  finalizers:
+    - foregroundDeletion
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: test-long-running-job
+          image: cemregistry.azurecr.io/python:3.8.6-slim
+          imagePullPolicy: Always
+          command: [ "bash" ]
+          args: [ "-c", "echo 'start' && sleep 600 && echo 'done'" ]
