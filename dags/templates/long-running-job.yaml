@@ -7,7 +7,7 @@ spec:
   backoffLimit: 2
   template:
     spec:
-      serviceAccountName: airflow
+#      serviceAccountName: airflow
       restartPolicy: Never
       containers:
         - name: test-long-running-job
