@@ -28,7 +28,7 @@ def create_dag(
         task_id=f"{dag_name}_task",
         dag=dag,
         body_filepath="dags/dags/templates/long-running-job.yaml",
-        namespace="airflow",
+        # namespace="airflow",
         in_cluster=True,
         delete_policy=JobRunnerDeletePolicy.IfSucceeded,
     )
